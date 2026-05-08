@@ -1,5 +1,6 @@
 import java.io.*;
 import java.nio.*;
+import java.util.Scanner;
 
 //helper function for getYearData,
 //season values: Fall, Spring, Summer
@@ -20,6 +21,7 @@ public class ReadCSV {
         }catch (FileNotFoundException e) {
             System.out.println("ReadCSV: File not found");
                }
+        return -1;
         }//findYear
 
     //takes a year as an input,
