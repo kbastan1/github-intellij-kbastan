@@ -1,8 +1,10 @@
 import java.io.*;
 import java.nio.*;
 
+//helper function for getYearData,
+//season values: Fall, Spring, Summer
 public class ReadCSV {
-    public static int findYear(String year){
+    public static int findYear(String season,String year){
         try (Scanner scanner = new Scanner(new File("GradesSumm.csv"))){
 
             if (scanner.hasNextLine()) {
@@ -10,25 +12,26 @@ public class ReadCSV {
             String[] headers = headerLine.split(",");
 
             for (int i = 0; i < headers.length; i++) {
-                if (headers[i].equals(year)) {
+                if (headers[i].equals(season + " " + year)) {
                     return i;
                 }
             }
             }
         }catch (FileNotFoundException e) {
-            System.out.println("File not found: " + filePath);
+            System.out.println("ReadCSV: File not found");
                }
         }//findYear
 
     //takes a year as an input,
     //returns an array of all the data for the given year column
-    public static string[] getYearData(String year) {
-        int columnIndex = findYear(year);
+    //season values: Fall, Spring, Summer
+    public static String[] getYearData(String season, String year) {
+        int columnIndex = findYear(season,year);
         if (columnIndex == -1)
         {
             return new String[0];
         }
-        String data = new String[50];
+        String[] data = new String[50];
         int count = 0;
         try (Scanner scanner = new Scanner(new File("GradesSumm.csv"))){
             scanner.nextLine();
@@ -39,7 +42,7 @@ public class ReadCSV {
              count++;
             }
         }catch (FileNotFoundException e) {
-            System.out.println("File not found: " + filePath);
+            System.out.println("getYearData: File not found");
             }
         String output[] = new String[count];
         //cleaning
