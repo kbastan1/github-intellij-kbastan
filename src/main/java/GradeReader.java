@@ -8,7 +8,7 @@
  * This program reads grade data from Ohlone College CSV file and prints out the
  * percentage of A's and F's for each semester
  *
- * CSV parsing is handled by CsvColumnReader.java (Estus's part)
+ * CSV parsing is handled by CsvColumnReader.java (K Bastan's part)
  */
 
 import java.util.List;
