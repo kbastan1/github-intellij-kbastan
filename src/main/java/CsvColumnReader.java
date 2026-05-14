@@ -39,7 +39,7 @@ public class CsvColumnReader {
                         .setAllowMissingColumnNames(true)//allow for blank headers
                         .setTrim(true)//trim the extra space if there is any around values
                         .build()//build the csvformat object
-                        .parse(reader))//now parse it {
+                        .parse(reader)){//now parse it 
             List<String> headers = parser.getHeaderNames();
             List<CSVRecord> records = parser.getRecords();
 
